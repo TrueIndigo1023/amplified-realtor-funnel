@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en-SG">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Book Your Realtor Pipeline Plan | Amplified Marketing</title>
+<meta content="You qualify. Pick a time for your free 60-minute Realtor Pipeline Plan." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script src="config.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Primary" class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><span aria-hidden="true" class="brand-icon"><img alt="" src="assets/amplified-brand.jpeg"/></span><span>AMPLIFIED</span></a><span class="fine mono">STEP 2 OF 2</span></div></nav>
+<main id="main">
+<header class="page-hero">
+<div class="narrow center">
+<p class="eyebrow">You passed the fit check</p>
+<h1 id="book-title" style="font-size:clamp(44px,7vw,78px)">Pick your session time.</h1>
+<p class="lede">Your free 60-minute Realtor Pipeline Plan.<br/>We only take on a few realtors at a time, so slots are limited.</p>
+</div>
+</header>
+<section class="section-sm">
+<div class="container">
+<div class="narrow">
+<div class="card" style="margin-top:8px">
+<p class="stack-title">You walk away with five things:</p>
+<ol class="value-stack">
+<li><b>Your homeowner segment.</b> The people you close best, named clearly.</li>
+<li><b>The problem that moves them now.</b> The reason they cannot keep waiting.</li>
+<li><b>Your first campaign angle.</b> The one we would test first in your market.</li>
+<li><b>Your follow-up path.</b> How a reply becomes a booked home visit, step by step.</li>
+<li><b>A straight fit verdict.</b> Yes or no, with the reason.</li>
+</ol>
+</div>
+<article class="founder-card"><img alt="Muhammad Fahim, Founder of Amplified Marketing" src="assets/fahim.jpg"/><div><p class="eyebrow">You will be meeting</p><h3>Muhammad Fahim</h3><p>Founder, Amplified Marketing.<br/>He built the campaign system and the booking record you just saw.<br/>Featured on MoneyFM 89.3.</p></div></article>
+</div>
+<div class="calendar-shell" id="calendar" style="margin-top:44px">
+<iframe id="ghl-calendar" scrolling="no" src="https://api.leadconnectorhq.com/widget/booking/J18IVNBwFWgx8g7pTDS6" title="Book your Realtor Pipeline Plan"></iframe>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container"><a href="index.html">Back to the full page</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div></footer>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+<script>
+  try {
+    var firstName = sessionStorage.getItem('realtorFirstName');
+    if (firstName) document.getElementById('book-title').textContent = firstName + ', pick your session time.';
+  } catch (error) {}
+  // A booking only counts when GHL says it landed. Exact origins only.
+  var BOOKING_ORIGINS = new Set(['https://api.leadconnectorhq.com', 'https://widgets.leadconnectorhq.com', 'https://link.msgsndr.com']);
+  window.addEventListener('message', function (ev) {
+    if (!BOOKING_ORIGINS.has(ev.origin)) return;
+    var s = typeof ev.data === 'string' ? ev.data : JSON.stringify(ev.data || '');
+    if (/appointment|booking/i.test(s) && /success|booked|created|complete/i.test(s)) {
+      window.AMP.track('Schedule');
+      setTimeout(function () { window.location.href = 'thank-you.html'; }, 300);
+    }
+  });
+</script>
+</body>
+</html>
