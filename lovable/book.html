@@ -51,6 +51,17 @@
     var firstName = sessionStorage.getItem('realtorFirstName');
     if (firstName) document.getElementById('book-title').textContent = firstName + ', pick your session time.';
   } catch (error) {}
+  // Belt and braces for the same problem: if the embed script has parked the iframe off-screen
+  // or at zero height a few seconds in, put it back.
+  window.setTimeout(function () {
+    var cal = document.getElementById('ghl-calendar');
+    if (!cal) return;
+    var box = cal.getBoundingClientRect();
+    if (box.height < 300 || getComputedStyle(cal).visibility === 'hidden') {
+      cal.setAttribute('style', 'width:100%;min-height:900px;border:0;opacity:1;visibility:visible;position:relative;left:auto;');
+    }
+  }, 4000);
+
   // A booking only counts when GHL says it landed. Exact origins only.
   var BOOKING_ORIGINS = new Set(['https://api.leadconnectorhq.com', 'https://widgets.leadconnectorhq.com', 'https://link.msgsndr.com']);
   window.addEventListener('message', function (ev) {

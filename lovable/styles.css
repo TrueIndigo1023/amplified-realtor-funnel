@@ -334,3 +334,17 @@ details p { max-width: 760px; padding: 0 0 24px; color: var(--muted-dark); }
 .conversation figcaption { min-height: 0; padding: 16px 18px; }
 .conversation figcaption b { display: block; font-size: 18px; }
 @media (max-width: 680px) { .step .number { font-size: 30px; } .step h3 { font-size: 26px; } }
+
+/* GHL's form_embed.js hides the calendar iframe while it negotiates a height, and on the live
+   site it never unhid it, leaving a blank gap where the calendar should be. These win over its
+   inline styles, so the calendar is always visible. */
+#ghl-calendar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  left: auto !important;
+  pointer-events: auto !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 900px;
+}
