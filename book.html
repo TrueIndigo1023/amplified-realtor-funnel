@@ -51,13 +51,14 @@
   try {
     sessionStorage.setItem('amp_booking_open', '1');
     var lead = JSON.parse(localStorage.getItem('amp_lead') || '{}');
-    var parts = (lead.name || '').trim().split(/\s+/);
-    var qs = new URLSearchParams();
-    if (parts[0]) qs.set('first_name', parts[0]);
-    if (parts.length > 1) qs.set('last_name', parts.slice(1).join(' '));
-    if (lead.email) qs.set('email', lead.email);
-    if (lead.phone) qs.set('phone', lead.phone);
-    if (qs.toString()) { var cal0 = document.getElementById('ghl-calendar'); cal0.src = cal0.src + '?' + qs.toString(); }
+    // Whole name in first_name: CEA register names are surname-first, so a split would greet "Hi TAN".
+    var fullName = (lead.name || '').trim().toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    var cal0 = document.getElementById('ghl-calendar');
+    var u = new URL(cal0.src);
+    if (fullName) u.searchParams.set('first_name', fullName);
+    if (lead.email) u.searchParams.set('email', lead.email);
+    if (lead.phone) u.searchParams.set('phone', lead.phone);
+    if (u.href !== cal0.src) cal0.src = u.href;
   } catch (error) {}
 </script>
 <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
