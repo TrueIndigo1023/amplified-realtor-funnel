@@ -57,7 +57,7 @@
     var u = new URL(cal0.src);
     if (fullName) u.searchParams.set('first_name', fullName);
     if (lead.email) u.searchParams.set('email', lead.email);
-    if (lead.phone) u.searchParams.set('phone', lead.phone);
+    if (lead.phone) u.searchParams.set('phone', window.AMP && AMP.toE164 ? AMP.toE164(lead.phone) : lead.phone);
     if (u.href !== cal0.src) cal0.src = u.href;
   } catch (error) {}
 </script>
