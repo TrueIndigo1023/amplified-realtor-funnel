@@ -3,7 +3,7 @@ window.AMP = window.AMP || {};
 AMP.PIXEL_ID = '1978047422866369';     // Meta Pixel ID for THIS funnel (never reuse another funnel's)
 AMP.WEBHOOK_URL = 'https://hook.eu2.make.com/xccoybpvkhvjgkxgu3ch74nasthakyt0';  // Make 9843360 catch-hook. Receives QUALIFIED leads only (Lead Gate rule 0a)
 AMP.CEA_PROXY_URL = 'https://muhd-fahim1023--amplified-cea-proxy-web.modal.run/'; // CEA register proxy (cea-proxy/modal_cea_proxy.py)
-AMP.CALENDAR_URL = 'https://api.leadconnectorhq.com/widget/booking/xykYdQoRPYjxiOHlyb9d'; // Amplified Realtors (realtor copy, redirects to /thank-you)
+AMP.CALENDAR_URL = 'https://api.leadconnectorhq.com/widget/booking/mQ3zsixy8DQJLPi1OGDH'; // Amplified Realtors PERSONAL calendar (Fahim; checks his Google + FA bookings), redirects to /thank-you
 
 // Real SG mobile (8 or 9 + 7 digits, optional 65) or MY mobile (01x). Lead Gate rule 2.
 AMP.isValidMobile = function (raw) {
