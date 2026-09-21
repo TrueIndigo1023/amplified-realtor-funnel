@@ -2,7 +2,7 @@
 window.AMP = window.AMP || {};
 AMP.PIXEL_ID = '1978047422866369';     // Meta Pixel ID for THIS funnel (never reuse another funnel's)
 AMP.WEBHOOK_URL = '';  // Make catch-hook. Receives QUALIFIED leads only (Lead Gate rule 0a)
-AMP.CEA_PROXY_URL = 'http://127.0.0.1:8798/cea'; // prod: deploy cea-proxy/worker.js and put its URL here
+AMP.CEA_PROXY_URL = 'https://muhd-fahim1023--amplified-cea-proxy-web.modal.run/'; // CEA register proxy (cea-proxy/modal_cea_proxy.py)
 AMP.CALENDAR_URL = 'https://api.leadconnectorhq.com/widget/booking/J18IVNBwFWgx8g7pTDS6'; // Amplified Marketing Session
 
 // Real SG mobile (8 or 9 + 7 digits, optional 65) or MY mobile (01x). Lead Gate rule 2.
