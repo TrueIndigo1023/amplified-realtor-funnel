@@ -11,6 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <script src="config.js"></script>
+<script>
+  // One Schedule per booking: only when this browser came through the calendar, never twice.
+  try {
+    if (sessionStorage.getItem('amp_booking_open') === '1' && !sessionStorage.getItem('amp_schedule_sent')) {
+      sessionStorage.setItem('amp_schedule_sent', '1');
+      window.AMP.track('Schedule');
+    }
+  } catch (error) {}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +55,7 @@
 </figcaption>
 </figure>
 <figure class="client-card">
-<div class="media-frame"><video controls="" playsinline="" poster="https://cdn.jsdelivr.net/gh/TrueIndigo1023/amplified-realtor-funnel@main/assets/karmila_poster.jpg" preload="metadata" src="https://cdn.jsdelivr.net/gh/TrueIndigo1023/amplified-realtor-funnel@main/assets/karmila_testimonial.mp4"></video></div>
+<div class="media-frame"><video controls="" playsinline="" poster="https://cdn.jsdelivr.net/gh/TrueIndigo1023/amplified-realtor-funnel@main/assets/karmila_hook3_poster.jpg" preload="metadata" src="https://cdn.jsdelivr.net/gh/TrueIndigo1023/amplified-realtor-funnel@main/assets/karmila_hook3.mp4"></video></div>
 <figcaption>
 <div class="testimonial-by"><img alt="Karmila, Singapore realtor" src="https://cdn.jsdelivr.net/gh/TrueIndigo1023/amplified-realtor-funnel@main/assets/karmila_face.jpg"/><div><strong>Karmila</strong><br/><span class="fine">Closed $100,000 in deals in 5 months</span></div></div>
 </figcaption>

@@ -28,7 +28,7 @@
 <div class="narrow">
 </div>
 <div class="calendar-shell" id="calendar" style="margin-top:44px">
-<iframe id="ghl-calendar" scrolling="no" src="https://api.leadconnectorhq.com/widget/booking/J18IVNBwFWgx8g7pTDS6" title="Book your Realtor Pipeline Plan"></iframe>
+<iframe id="ghl-calendar" scrolling="no" src="https://api.leadconnectorhq.com/widget/booking/xykYdQoRPYjxiOHlyb9d" title="Book your Realtor Pipeline Plan"></iframe>
 </div>
 <div class="card" style="margin-top:8px">
 <p class="stack-title">You walk away with five things:</p>
@@ -45,6 +45,21 @@
 </section>
 </main>
 <footer class="footer"><div class="container"><a href="index.html">Back to the full page</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div></footer>
+<script>
+  // Prefill the GHL booking form with what they already typed on the landing page, and mark that
+  // this browser reached the calendar (thank-you.html fires Schedule only when this flag is set).
+  try {
+    sessionStorage.setItem('amp_booking_open', '1');
+    var lead = JSON.parse(localStorage.getItem('amp_lead') || '{}');
+    var parts = (lead.name || '').trim().split(/\s+/);
+    var qs = new URLSearchParams();
+    if (parts[0]) qs.set('first_name', parts[0]);
+    if (parts.length > 1) qs.set('last_name', parts.slice(1).join(' '));
+    if (lead.email) qs.set('email', lead.email);
+    if (lead.phone) qs.set('phone', lead.phone);
+    if (qs.toString()) { var cal0 = document.getElementById('ghl-calendar'); cal0.src = cal0.src + '?' + qs.toString(); }
+  } catch (error) {}
+</script>
 <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 <script>
   try {
@@ -68,7 +83,7 @@
     if (!BOOKING_ORIGINS.has(ev.origin)) return;
     var s = typeof ev.data === 'string' ? ev.data : JSON.stringify(ev.data || '');
     if (/appointment|booking/i.test(s) && /success|booked|created|complete/i.test(s)) {
-      window.AMP.track('Schedule');
+      // Schedule fires once, on thank-you.html, whether GHL redirects there itself or we do.
       setTimeout(function () { window.location.href = 'thank-you.html'; }, 300);
     }
   });

@@ -348,3 +348,12 @@ details p { max-width: 760px; padding: 0 0 24px; color: var(--muted-dark); }
   width: 100% !important;
   min-height: 900px;
 }
+
+/* 2026-09-21 mobile pass: portrait testimonials, true-ratio log video, centred headshots */
+.client-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center; }
+.client-card .media-frame { max-width: 340px; }
+.client-card .media-frame video { aspect-ratio: 9 / 16; object-fit: cover; height: auto; max-height: 78vh; background: #061117; }
+.step-proof .media-frame video { aspect-ratio: 16 / 10; object-fit: contain; }
+.result-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.result-person img { display: block; margin-inline: auto; }
+@media (max-width: 680px) { .result-people { flex-direction: column; align-items: center; } .result-person { width: 100%; } }
